@@ -17,6 +17,10 @@ const EquivalencePartitioning: FC = () => {
   const input6Reference = useRef<HTMLInputElement>(null);
   const input7Reference = useRef<HTMLInputElement>(null);
   const input8Reference = useRef<HTMLInputElement>(null);
+  const input9Reference = useRef<HTMLInputElement>(null);
+  const input10Reference = useRef<HTMLInputElement>(null);
+  const input11Reference = useRef<HTMLInputElement>(null);
+  const input12Reference = useRef<HTMLInputElement>(null);
 
   const parseInput = (input: RefObject<HTMLInputElement>): number => {
     if (input.current?.value.length == 0) {
@@ -170,15 +174,77 @@ const EquivalencePartitioning: FC = () => {
     }
   };
 
+  const program9Handler = () => {
+    const userInput = parseInput(input9Reference);
+
+    if (isNaN(userInput)) {
+      alert(Messages.REJECTED_NAN);
+    } else if (userInput >= -10000 && userInput <= 10000) {
+      if (userInput > 0) {
+        alert(Messages.ACCEPTED_NEGATIVE);
+      } else if (userInput < 0) {
+        alert(Messages.ACCEPTED_POSITIVE);
+      } else {
+        alert(Messages.ACCEPTED_ZERO);
+      }
+    } else {
+      alert(Messages.REJECTED_NOT_ACCEPTABLE);
+    }
+  };
+
+  const program10Handler = () => {
+    const userInput = parseInput(input10Reference);
+
+    if (isNaN(userInput)) {
+      alert(Messages.REJECTED_NAN);
+    } else if (userInput >= -10000 && userInput <= 10000) {
+      if (userInput < -1) {
+        alert(Messages.ACCEPTED_NEGATIVE);
+      } else if (userInput > 1) {
+        alert(Messages.ACCEPTED_POSITIVE);
+      } else {
+        alert(Messages.ACCEPTED_ZERO);
+      }
+    } else {
+      alert(Messages.REJECTED_NOT_ACCEPTABLE);
+    }
+  };
+
+  const program11Handler = () => {
+    const userInput = parseInput(input11Reference);
+
+    if (isNaN(userInput)) {
+      alert(Messages.REJECTED_NAN);
+    } else if (userInput >= -10000 && userInput <= 10000) {
+      if (userInput < 0) {
+        alert(Messages.ACCEPTED_NEGATIVE);
+      } else {
+        alert(Messages.ACCEPTED_POSITIVE);
+      }
+    } else {
+      alert(Messages.REJECTED_NOT_ACCEPTABLE);
+    }
+  };
+
+  const program12Handler = () => {
+    const userInput = parseInput(input12Reference);
+
+    alert(
+      Math.random() * 2 > 1
+        ? Messages.ACCEPTED_POSITIVE
+        : Messages.ACCEPTED_NEGATIVE
+    );
+  };
+
   return (
     <div className='container'>
       <h1>EP & BVA Practice Assignment</h1>
       <p>
         This page contains a simple specification for Equivalence Partitioning
-        and Boundary Value Analysis test design techniques, along with 8
+        and Boundary Value Analysis test design techniques, along with several
         different implementations of this specification. Implementation 1 is
-        correct, others - not so much. Your goal is to design test cases and
-        verify that your test cases detect planted issues.
+        correct, others - not so much. Your goal is to find ON, OFF, OUT and IN
+        values that will find bugs in all of them.
       </p>
 
       <h2>Specification</h2>
@@ -354,6 +420,86 @@ const EquivalencePartitioning: FC = () => {
           type='button'
           id='button-addon2'
           onClick={program8Handler}
+        >
+          Validate
+        </button>
+      </div>
+
+      <h3>Implementation 9</h3>
+      <div className='input-group mb-3'>
+        <input
+          type='text'
+          className='form-control'
+          placeholder='Enter value...'
+          aria-label='Enter value...'
+          aria-describedby='button-addon2'
+          ref={input9Reference}
+        />
+        <button
+          className='btn btn-outline-secondary'
+          type='button'
+          id='button-addon2'
+          onClick={program9Handler}
+        >
+          Validate
+        </button>
+      </div>
+
+      <h3>Implementation 10</h3>
+      <div className='input-group mb-3'>
+        <input
+          type='text'
+          className='form-control'
+          placeholder='Enter value...'
+          aria-label='Enter value...'
+          aria-describedby='button-addon2'
+          ref={input10Reference}
+        />
+        <button
+          className='btn btn-outline-secondary'
+          type='button'
+          id='button-addon2'
+          onClick={program10Handler}
+        >
+          Validate
+        </button>
+      </div>
+
+      <h3>Implementation 11</h3>
+      <div className='input-group mb-3'>
+        <input
+          type='text'
+          className='form-control'
+          placeholder='Enter value...'
+          aria-label='Enter value...'
+          aria-describedby='button-addon2'
+          ref={input11Reference}
+        />
+        <button
+          className='btn btn-outline-secondary'
+          type='button'
+          id='button-addon2'
+          onClick={program11Handler}
+        >
+          Validate
+        </button>
+      </div>
+
+      <h3>Implementation 12</h3>
+      <div className='input-group mb-3'>
+        <input
+          type='text'
+          className='form-control'
+          placeholder='Enter value...'
+          aria-label='Enter value...'
+          aria-describedby='button-addon2'
+          ref={input12Reference}
+        />
+        <button
+          className='btn btn-outline-secondary'
+          type='button'
+          id='button-addon2'
+          onClick={program12Handler}
         >
           Validate
         </button>
