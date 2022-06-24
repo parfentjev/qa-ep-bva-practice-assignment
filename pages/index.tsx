@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import EquivalencePartitioning from '../components/EquivalencePartitioning';
+import Implementations from '../components/Implementations';
 
 const Home: NextPage = () => {
   return (
@@ -18,7 +18,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className='flex-shrink-0'>
-        <EquivalencePartitioning />
+        <Implementations />
       </main>
 
       <footer className='text-center'>

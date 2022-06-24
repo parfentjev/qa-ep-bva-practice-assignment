@@ -1,4 +1,6 @@
 import { FC, useRef, RefObject } from 'react';
+import Implementation1 from './Implementation1';
+import { parseInput as p } from '../utils/string-utils';
 
 enum Messages {
   REJECTED_NAN = 'REJECTED: The value must be an integer.',
@@ -8,8 +10,7 @@ enum Messages {
   ACCEPTED_ZERO = 'ACCEPTED: Not stored (0).',
 }
 
-const EquivalencePartitioning: FC = () => {
-  const input1Reference = useRef<HTMLInputElement>(null);
+const Implementations: FC = () => {
   const input2Reference = useRef<HTMLInputElement>(null);
   const input3Reference = useRef<HTMLInputElement>(null);
   const input4Reference = useRef<HTMLInputElement>(null);
@@ -23,32 +24,10 @@ const EquivalencePartitioning: FC = () => {
   const input12Reference = useRef<HTMLInputElement>(null);
 
   const parseInput = (input: RefObject<HTMLInputElement>): number => {
-    if (input.current?.value.length == 0) {
-      return NaN;
-    }
-
-    return Number(input.current?.value);
+    return p(input);
   };
 
-  const program1Handler = () => {
-    const userInput = parseInput(input1Reference);
-
-    if (isNaN(userInput)) {
-      alert(Messages.REJECTED_NAN);
-    } else if (userInput >= -10000 && userInput <= 10000) {
-      if (userInput < 0) {
-        alert(Messages.ACCEPTED_NEGATIVE);
-      } else if (userInput > 0) {
-        alert(Messages.ACCEPTED_POSITIVE);
-      } else {
-        alert(Messages.ACCEPTED_ZERO);
-      }
-    } else {
-      alert(Messages.REJECTED_NOT_ACCEPTABLE);
-    }
-  };
-
-  const program2Handler = () => {
+  const implementation2Handler = () => {
     const userInput = parseInput(input2Reference);
 
     if (isNaN(userInput)) {
@@ -66,7 +45,7 @@ const EquivalencePartitioning: FC = () => {
     }
   };
 
-  const program3Handler = () => {
+  const implementation3Handler = () => {
     const userInput = parseInput(input3Reference);
 
     if (isNaN(userInput)) {
@@ -84,7 +63,7 @@ const EquivalencePartitioning: FC = () => {
     }
   };
 
-  const program4Handler = () => {
+  const implementation4Handler = () => {
     const userInput = parseInput(input4Reference);
 
     if (isNaN(userInput)) {
@@ -102,7 +81,7 @@ const EquivalencePartitioning: FC = () => {
     }
   };
 
-  const program5Handler = () => {
+  const implementation5Handler = () => {
     const userInput = parseInput(input5Reference);
 
     if (isNaN(userInput)) {
@@ -120,7 +99,7 @@ const EquivalencePartitioning: FC = () => {
     }
   };
 
-  const program6Handler = () => {
+  const implementation6Handler = () => {
     const userInput = parseInput(input6Reference);
 
     if (isNaN(userInput)) {
@@ -138,7 +117,7 @@ const EquivalencePartitioning: FC = () => {
     }
   };
 
-  const program7Handler = () => {
+  const implementation7Handler = () => {
     const userInput = parseInput(input7Reference);
 
     if (isNaN(userInput)) {
@@ -156,7 +135,7 @@ const EquivalencePartitioning: FC = () => {
     }
   };
 
-  const program8Handler = () => {
+  const implementation8Handler = () => {
     const userInput = parseInput(input8Reference);
 
     if (isNaN(userInput)) {
@@ -174,7 +153,7 @@ const EquivalencePartitioning: FC = () => {
     }
   };
 
-  const program9Handler = () => {
+  const implementation9Handler = () => {
     const userInput = parseInput(input9Reference);
 
     if (isNaN(userInput)) {
@@ -192,7 +171,7 @@ const EquivalencePartitioning: FC = () => {
     }
   };
 
-  const program10Handler = () => {
+  const implementation10Handler = () => {
     const userInput = parseInput(input10Reference);
 
     if (isNaN(userInput)) {
@@ -210,7 +189,7 @@ const EquivalencePartitioning: FC = () => {
     }
   };
 
-  const program11Handler = () => {
+  const implementation11Handler = () => {
     const userInput = parseInput(input11Reference);
 
     if (isNaN(userInput)) {
@@ -226,7 +205,7 @@ const EquivalencePartitioning: FC = () => {
     }
   };
 
-  const program12Handler = () => {
+  const implementation12Handler = () => {
     const userInput = parseInput(input12Reference);
 
     alert(
@@ -251,7 +230,7 @@ const EquivalencePartitioning: FC = () => {
       <ul>
         <li>
           Any integer that is greater or equal to -10,000 and less or equal to
-          10,000 is accepted by the programm;
+          10,000 is accepted by the program;
         </li>
         <li>
           All negative integers must be stored in a database with other negative
@@ -265,25 +244,7 @@ const EquivalencePartitioning: FC = () => {
       </ul>
 
       <h2>Implementations</h2>
-      <h3>Implementation 1</h3>
-      <div className='input-group mb-3'>
-        <input
-          type='text'
-          className='form-control'
-          placeholder='Enter value...'
-          aria-label='Enter value...'
-          aria-describedby='button-addon2'
-          ref={input1Reference}
-        />
-        <button
-          className='btn btn-outline-secondary'
-          type='button'
-          id='button-addon2'
-          onClick={program1Handler}
-        >
-          Validate
-        </button>
-      </div>
+      <Implementation1 />
 
       <h3>Implementation 2</h3>
       <div className='input-group mb-3'>
@@ -299,7 +260,7 @@ const EquivalencePartitioning: FC = () => {
           className='btn btn-outline-secondary'
           type='button'
           id='button-addon2'
-          onClick={program2Handler}
+          onClick={implementation2Handler}
         >
           Validate
         </button>
@@ -319,7 +280,7 @@ const EquivalencePartitioning: FC = () => {
           className='btn btn-outline-secondary'
           type='button'
           id='button-addon2'
-          onClick={program3Handler}
+          onClick={implementation3Handler}
         >
           Validate
         </button>
@@ -339,7 +300,7 @@ const EquivalencePartitioning: FC = () => {
           className='btn btn-outline-secondary'
           type='button'
           id='button-addon2'
-          onClick={program4Handler}
+          onClick={implementation4Handler}
         >
           Validate
         </button>
@@ -359,7 +320,7 @@ const EquivalencePartitioning: FC = () => {
           className='btn btn-outline-secondary'
           type='button'
           id='button-addon2'
-          onClick={program5Handler}
+          onClick={implementation5Handler}
         >
           Validate
         </button>
@@ -379,7 +340,7 @@ const EquivalencePartitioning: FC = () => {
           className='btn btn-outline-secondary'
           type='button'
           id='button-addon2'
-          onClick={program6Handler}
+          onClick={implementation6Handler}
         >
           Validate
         </button>
@@ -399,7 +360,7 @@ const EquivalencePartitioning: FC = () => {
           className='btn btn-outline-secondary'
           type='button'
           id='button-addon2'
-          onClick={program7Handler}
+          onClick={implementation7Handler}
         >
           Validate
         </button>
@@ -419,7 +380,7 @@ const EquivalencePartitioning: FC = () => {
           className='btn btn-outline-secondary'
           type='button'
           id='button-addon2'
-          onClick={program8Handler}
+          onClick={implementation8Handler}
         >
           Validate
         </button>
@@ -439,7 +400,7 @@ const EquivalencePartitioning: FC = () => {
           className='btn btn-outline-secondary'
           type='button'
           id='button-addon2'
-          onClick={program9Handler}
+          onClick={implementation9Handler}
         >
           Validate
         </button>
@@ -459,7 +420,7 @@ const EquivalencePartitioning: FC = () => {
           className='btn btn-outline-secondary'
           type='button'
           id='button-addon2'
-          onClick={program10Handler}
+          onClick={implementation10Handler}
         >
           Validate
         </button>
@@ -479,7 +440,7 @@ const EquivalencePartitioning: FC = () => {
           className='btn btn-outline-secondary'
           type='button'
           id='button-addon2'
-          onClick={program11Handler}
+          onClick={implementation11Handler}
         >
           Validate
         </button>
@@ -499,7 +460,7 @@ const EquivalencePartitioning: FC = () => {
           className='btn btn-outline-secondary'
           type='button'
           id='button-addon2'
-          onClick={program12Handler}
+          onClick={implementation12Handler}
         >
           Validate
         </button>
@@ -508,4 +469,4 @@ const EquivalencePartitioning: FC = () => {
   );
 };
 
-export default EquivalencePartitioning;
+export default Implementations;
