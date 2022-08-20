@@ -1,4 +1,4 @@
-import { forwardRef, useRef } from 'react'
+import { forwardRef } from 'react'
 
 type ImplementationProps = {
   title: string
@@ -33,5 +33,7 @@ const BaseImplementation = forwardRef<HTMLInputElement, ImplementationProps>(
     )
   }
 )
+
+BaseImplementation.displayName = 'BaseImplementation'
 
 export default BaseImplementation
