@@ -23,7 +23,6 @@ const BaseImplementation = forwardRef<HTMLInputElement, ImplementationProps>(
           <button
             className="btn btn-outline-secondary"
             type="button"
-            id="button-addon2"
             onClick={validationHandler}
           >
             Validate
