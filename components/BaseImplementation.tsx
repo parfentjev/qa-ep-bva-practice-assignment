@@ -7,9 +7,9 @@ type ImplementationProps = {
 }
 
 const BaseImplementation = forwardRef<HTMLInputElement, ImplementationProps>(
-  ({ title, validationHandler }, ref) => {
+  ({ title, testid, validationHandler }, ref) => {
     return (
-      <div data-testid="s">
+      <div data-testid={testid}>
         <h3>{title}</h3>
         <div className="input-group mb-3">
           <input
