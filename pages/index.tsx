@@ -1,6 +1,8 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Implementations from '../components/Implementations'
+import { Bounce, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const Home: NextPage = () => {
   return (
@@ -18,6 +20,19 @@ const Home: NextPage = () => {
       </Head>
 
       <main className="flex-shrink-0">
+        <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          limit={1}
+          hideProgressBar={false}
+          newestOnTop
+          closeOnClick
+          rtl={false}
+          draggable
+          pauseOnHover
+          theme="light"
+          transition={Bounce}
+        />
         <Implementations />
       </main>
 

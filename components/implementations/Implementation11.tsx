@@ -2,6 +2,7 @@ import { FC, useRef } from 'react'
 import { Messages } from '../../data/Messages'
 import { parseInput } from '../../utils/string-utils'
 import BaseImplementation from '../BaseImplementation'
+import { accepted, rejected } from '../../utils/alert'
 
 const Implementation11: FC = () => {
   const inputReference = useRef<HTMLInputElement>(null)
@@ -13,19 +14,19 @@ const Implementation11: FC = () => {
       alert(Messages.REJECTED_NAN)
     } else if (userInput >= -10000 && userInput <= 10000) {
       if (userInput < 0) {
-        alert(Messages.ACCEPTED_NEGATIVE)
+        accepted(Messages.ACCEPTED_NEGATIVE)
       } else {
-        alert(Messages.ACCEPTED_POSITIVE)
+        accepted(Messages.ACCEPTED_POSITIVE)
       }
     } else {
-      alert(Messages.REJECTED_NOT_ACCEPTABLE)
+      rejected(Messages.REJECTED_NOT_ACCEPTABLE)
     }
   }
 
   return (
     <BaseImplementation
       title="Implementation 11"
-      testid="implementation11"
+      answer="ON value 0 detects this bug."
       validationHandler={validationHandler}
       ref={inputReference}
     />

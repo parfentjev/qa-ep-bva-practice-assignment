@@ -2,7 +2,6 @@ import { FC } from 'react'
 import Implementation1 from './implementations/Implementation1'
 import Implementation10 from './implementations/Implementation10'
 import Implementation11 from './implementations/Implementation11'
-import Implementation12 from './implementations/Implementation12'
 import Implementation2 from './implementations/Implementation2'
 import Implementation3 from './implementations/Implementation3'
 import Implementation4 from './implementations/Implementation4'
@@ -20,10 +19,9 @@ const Implementations: FC = () => {
         This page contains a simple specification for Equivalence Partitioning
         and Boundary Value Analysis test design techniques, along with several
         different implementations of this specification. Implementation 1 is
-        correct, others - not so much. Your goal is to find ON, OFF, OUT, IN
-        other values that will find bugs in all of them.
+        correct, others - not so much. Your goal is to find ON; OFF, OUT, and IN
+        values that will reveal bugs in all of them.
       </p>
-
       <h2>Specification</h2>
       <ul>
         <li>
@@ -42,6 +40,7 @@ const Implementations: FC = () => {
       </ul>
 
       <h2>Implementations</h2>
+      <h3>-10,000 and 10,000 boundaries</h3>
       <Implementation1 />
       <Implementation2 />
       <Implementation3 />
@@ -50,10 +49,10 @@ const Implementations: FC = () => {
       <Implementation6 />
       <Implementation7 />
       <Implementation8 />
+      <h3>0 boundary</h3>
       <Implementation9 />
       <Implementation10 />
       <Implementation11 />
-      <Implementation12 />
     </div>
   )
 }

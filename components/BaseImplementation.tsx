@@ -1,16 +1,26 @@
 import { forwardRef } from 'react'
+import { toast } from 'react-toastify'
+import { info } from '../utils/alert'
 
 type ImplementationProps = {
   title: string
-  testid: string
+  answer: string
   validationHandler: () => void
 }
 
 const BaseImplementation = forwardRef<HTMLInputElement, ImplementationProps>(
-  ({ title, testid, validationHandler }, ref) => {
+  ({ title, answer, validationHandler }, ref) => {
+    const validate = () => {
+      validationHandler()
+    }
+
+    const showAnswer = () => {
+      info(answer)
+    }
+
     return (
-      <div data-testid={testid}>
-        <h3>{title}</h3>
+      <div data-testid={title}>
+        <h4>{title}</h4>
         <div className="input-group mb-3">
           <input
             type="text"
@@ -23,8 +33,11 @@ const BaseImplementation = forwardRef<HTMLInputElement, ImplementationProps>(
           <button
             className="btn btn-outline-secondary"
             type="button"
-            onClick={validationHandler}
+            onClick={showAnswer}
           >
+            Show answer
+          </button>
+          <button className="btn btn-primary" type="button" onClick={validate}>
             Validate
           </button>
         </div>
