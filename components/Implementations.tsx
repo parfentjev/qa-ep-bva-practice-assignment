@@ -27,7 +27,7 @@ const Implementations: FC = () => {
         <a href="https://fakeplastictrees.ee/post/0f32ddbb-5cc1-4801-abbc-029778b8d11f/ep-&-bva-practice-assignment-explanation">
           my blog post
         </a>
-        . Please read it after finishing with this execise, it's rather short.
+        . Please read it after finishing with this execise, it is rather short.
       </p>
       <h2>Specification</h2>
       <ul>
